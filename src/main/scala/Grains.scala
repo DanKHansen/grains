@@ -1,9 +1,9 @@
 object Grains:
    def square(n: Int): Option[BigInt] =
       n match
-         case x if x < 1 || x > 64 => None
-         case y if y == 64         => Some(f(y) + 1)
-         case _                    => Some(f(n))
+         case x if x >= 1 && x <= 63 => Some(f(x))
+         case y if y == 64           => Some(f(y) + 1)
+         case _                      => None
 
    private def f(n: Int): BigInt = BigInt(math.pow(2, n - 1).toLong)
 
